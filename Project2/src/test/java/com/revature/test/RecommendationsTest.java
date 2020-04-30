@@ -40,16 +40,16 @@ class RecommendationsTest {
 			recr = new RecommendationRepositoryImpl();
 		}
 		
-		/*@Test
+		@Test
 		public void testGetAllRecommendations(){
 			
-			List<Recommendations> rec = Arrays.asList(new Recommendations(Recommendations),
+			List<Recommendations> rec = Arrays.asList(new Recommendations(12, mv1, "jill", "joey"),
 													  new Recommendations(9, mv2, "bob", "billy"),
 													  new Recommendations(4, mv3, "john", "jill"));
 
 			Mockito.when(recr.getAllRecommendations()).thenReturn(rec);
 			Assertions.assertEquals(3, rec.get(1).getMovie().getMovieId());
-		}*/
+		}
 	
 		@Test
 		public void getRecommendationById() {
