@@ -21,19 +21,19 @@ public class Favorites {
 	private int favoritesId;
 	@ManyToOne
 	@JoinColumn(name = "username")
-	private String user_name;
+	private Users user;
 	@ManyToOne
 	@JoinColumn(name = "movieId")
-	private int movie_id;
+	private Movies movie;
 	public Favorites() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Favorites(int favoritesId, String user_name, int movie_id) {
+	public Favorites(int favoritesId, Users user, Movies movie) {
 		super();
 		this.favoritesId = favoritesId;
-		this.user_name = user_name;
-		this.movie_id = movie_id;
+		this.user = user;
+		this.movie = movie;
 	}
 	public int getFavoritesId() {
 		return favoritesId;
@@ -41,25 +41,25 @@ public class Favorites {
 	public void setFavoritesId(int favoritesId) {
 		this.favoritesId = favoritesId;
 	}
-	public String getUser_name() {
-		return user_name;
+	public Users getUser() {
+		return user;
 	}
-	public void setUser_name(String user_name) {
-		this.user_name = user_name;
+	public void setUser(Users user) {
+		this.user = user;
 	}
-	public int getMovie_id() {
-		return movie_id;
+	public Movies getMovie() {
+		return movie;
 	}
-	public void setMovie_id(int movie_id) {
-		this.movie_id = movie_id;
+	public void setMovie(Movies movie) {
+		this.movie = movie;
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + favoritesId;
-		result = prime * result + movie_id;
-		result = prime * result + ((user_name == null) ? 0 : user_name.hashCode());
+		result = prime * result + ((movie == null) ? 0 : movie.hashCode());
+		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		return result;
 	}
 	@Override
@@ -73,18 +73,21 @@ public class Favorites {
 		Favorites other = (Favorites) obj;
 		if (favoritesId != other.favoritesId)
 			return false;
-		if (movie_id != other.movie_id)
-			return false;
-		if (user_name == null) {
-			if (other.user_name != null)
+		if (movie == null) {
+			if (other.movie != null)
 				return false;
-		} else if (!user_name.equals(other.user_name))
+		} else if (!movie.equals(other.movie))
+			return false;
+		if (user == null) {
+			if (other.user != null)
+				return false;
+		} else if (!user.equals(other.user))
 			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
-		return "Favorites [favoritesId=" + favoritesId + ", user_name=" + user_name + ", movie_id=" + movie_id + "]";
+		return "Favorites [favoritesId=" + favoritesId + ", user=" + user + ", movie=" + movie + "]";
 	}
 	
 	

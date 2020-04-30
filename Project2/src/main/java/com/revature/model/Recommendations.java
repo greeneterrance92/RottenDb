@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -21,7 +22,7 @@ public class Recommendations {
 	private int recommendid;
 	@ManyToOne
 	@JoinColumn(name = "movieId")
-	private int movie_id;
+	private Movies movie; //needs to be the object
 	@Column
 	private String sender;
 	@Column
@@ -30,10 +31,10 @@ public class Recommendations {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Recommendations(int recommendid, int movie_id, String sender, String receiver) {
+	public Recommendations(int recommendid, Movies movie, String sender, String receiver) {
 		super();
 		this.recommendid = recommendid;
-		this.movie_id = movie_id;
+		this.movie = movie;
 		this.sender = sender;
 		this.receiver = receiver;
 	}
@@ -43,11 +44,11 @@ public class Recommendations {
 	public void setRecommendid(int recommendid) {
 		this.recommendid = recommendid;
 	}
-	public int getMovie_id() {
-		return movie_id;
+	public Movies getMovie() {
+		return this.movie;
 	}
-	public void setMovie_id(int movie_id) {
-		this.movie_id = movie_id;
+	public void setMovie(Movies movie) {
+		this.movie = movie;
 	}
 	public String getSender() {
 		return sender;
@@ -65,7 +66,7 @@ public class Recommendations {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + movie_id;
+		result = prime * result + ((movie == null) ? 0 : movie.hashCode());
 		result = prime * result + ((receiver == null) ? 0 : receiver.hashCode());
 		result = prime * result + recommendid;
 		result = prime * result + ((sender == null) ? 0 : sender.hashCode());
@@ -80,7 +81,10 @@ public class Recommendations {
 		if (getClass() != obj.getClass())
 			return false;
 		Recommendations other = (Recommendations) obj;
-		if (movie_id != other.movie_id)
+		if (movie == null) {
+			if (other.movie != null)
+				return false;
+		} else if (!movie.equals(other.movie))
 			return false;
 		if (receiver == null) {
 			if (other.receiver != null)
@@ -98,8 +102,8 @@ public class Recommendations {
 	}
 	@Override
 	public String toString() {
-		return "Recommendations [recommendid=" + recommendid + ", movie_id=" + movie_id + ", sender=" + sender
-				+ ", receiver=" + receiver + "]";
+		return "Recommendations [recommendid=" + recommendid + ", movie=" + movie + ", sender=" + sender + ", receiver="
+				+ receiver + "]";
 	} 
 	
 	
