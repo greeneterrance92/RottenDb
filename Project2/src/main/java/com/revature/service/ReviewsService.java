@@ -7,24 +7,26 @@ import com.revature.repository.ReviewRepository;
 import com.revature.repository.ReviewRepositoryImpl;
 
 public class ReviewsService {
-	ReviewRepository rr = new ReviewRepositoryImpl();
+	ReviewRepository rr;
+	
 	public List<Reviews> getAllReviews() {
 		return this.rr.getAllReviews();
 	}
 	
 	public Reviews getReviewById(int reviewid) {
-		return this.rr.getReviewById(0);
+		return this.rr.getReviewById(reviewid);
 	}
 	
 	public void insertReview(Reviews review) {
-		this.rr.insertReview(review);
+		rr.insertReview(review);
 	}
+		
 	public void updateReviews(Reviews review) {
-		this.rr.updateReviews(review);
+		rr.updateReviews(review);
 	}
+		
 	public void deleteReviews(Reviews review) {
-		this.rr.deleteReviews(review);
+		rr.deleteReviews(review);
 	}
-	
 	
 }
