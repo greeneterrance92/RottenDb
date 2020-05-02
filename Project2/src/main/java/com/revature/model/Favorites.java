@@ -20,10 +20,8 @@ public class Favorites {
 	@SequenceGenerator(name = "favorites_id_seq", allocationSize = 1)
 	private int favoritesId;
 	@ManyToOne
-	@JoinColumn(name = "username")
 	private Users user;
 	@ManyToOne
-	@JoinColumn(name = "movieId")
 	private Movies movie;
 	public Favorites() {
 		super();

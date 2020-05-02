@@ -3,7 +3,6 @@ package com.revature.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -12,7 +11,6 @@ import javax.persistence.Table;
 public class Users {
 	
 	@Id
-	@OneToMany(mappedBy = "user_name")
 	private String username;
 	@Column
 	private String password;

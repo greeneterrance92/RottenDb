@@ -18,7 +18,6 @@ public class Movies {
 	@Id
 	@GeneratedValue(generator = "movies_id_seq", strategy = GenerationType.AUTO)
 	@SequenceGenerator(name = "movies_id_seq", allocationSize = 1)
-	@OneToMany(mappedBy="movie_id")
 	private int movieId;
 	
 	@Column

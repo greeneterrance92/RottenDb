@@ -12,16 +12,16 @@ public class Driver {
 	
 	static UserRepositoryImpl ur = new UserRepositoryImpl();
 	public static void main(String...args) {
+		Users user = new Users("person", "my password");
 		
+		/*Session session = HibernateConfiguration.getSession();
+		Transaction tx = session.beginTransaction();*/
 		
-		Session session = HibernateConfiguration.getSession();
-		Transaction tx = session.beginTransaction();
+		ur.insertUser(user);
+
 		
-		List<Users> user = ur.getAllUsers();
-		System.out.println(user);
-		
-		tx.commit();
-		session.close();
+		/*tx.commit();
+		session.close();*/
 
 	}
 }

@@ -29,6 +29,7 @@ public class HibernateConfiguration {
 						.setProperty("hibernate.connection.username", props.getProperty("username"))
 						.setProperty("hibernate.connection.password", props.getProperty("password")).buildSessionFactory();
 			}
+			
 			return sessionFactory.getCurrentSession();
 		} catch (HibernateException e) {
 			e.printStackTrace();

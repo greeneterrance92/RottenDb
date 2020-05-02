@@ -14,6 +14,8 @@ which defines the valid elements of a hibernate configuration file. -->
 		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
 		<!-- What dialect of SQL are we using? -->
 		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+		
+
 		<!-- Configure our DB url, username, and password. -->
 		<property name="hibernate.connection.url">placeholder</property>
 		<property name="hibernate.connection.username">placeholder</property>
