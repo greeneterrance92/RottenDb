@@ -32,12 +32,12 @@ public class ReviewsController {
 		return this.reviewsService.getAllReviews();
 	}
 	
-	@GetMapping(path = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(path = "/id/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Reviews> getReviewsById(@PathVariable int id) {
 		return new ResponseEntity<>(this.reviewsService.getReviewsById(id), HttpStatus.OK);
 	}
 	
-	@GetMapping(path = "/name/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(path = "/name/{reviewname}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Reviews>> getReviewsByName(@PathVariable String reviewname) {
 		return new ResponseEntity<>(this.reviewsService.getReviewsByName(reviewname), HttpStatus.OK);
 	}
