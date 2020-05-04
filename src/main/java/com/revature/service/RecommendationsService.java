@@ -19,11 +19,11 @@ public class RecommendationsService {
 	}
 	
 	public Recommendations getRecommendationById(int id) {
-		return this.recommendationsRepository.findRecommendationsByRecommendationsId(id);
+		return this.recommendationsRepository.findById(id);
 	}
 	
 	public List<Recommendations> getRecommendationsByReceiver(String receiver){
-		return this.recommendationsRepository.getByReceiver();
+		return this.recommendationsRepository.findByReceiver(receiver);
 	}
 	
 }
