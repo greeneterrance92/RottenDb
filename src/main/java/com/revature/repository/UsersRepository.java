@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.revature.model.Users;
 
-@Repository("userRepository")
+@Repository("usersRepository")
 public interface UsersRepository extends JpaRepository<Users, Integer>{
 	
 	List<Users> findAll();

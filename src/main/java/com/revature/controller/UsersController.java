@@ -15,20 +15,16 @@ import com.revature.model.Users;
 import com.revature.service.UsersService;
 
 @RestController("usersController")
-@RequestMapping(path= "/users")
+@RequestMapping("/user")
 public class UsersController {
 
 	@Autowired
-	UsersService usersService;
-	
-//	@Autowired
-//	public UsersController(UsersService usersService) {
-//		this.usersService = usersService;
-//	}
+	private UsersService usersService;
 	
 	@GetMapping(path = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Users> getAllScreams(){
-		return this.usersService.getAllUsers();
+	public List<Users> getAllUsers(){
+		List<Users> usersList = this.usersService.getAllUsers();
+		return usersList;
 	}
 	
 	@GetMapping(path = "/name/{name}", produces = MediaType.APPLICATION_JSON_VALUE)

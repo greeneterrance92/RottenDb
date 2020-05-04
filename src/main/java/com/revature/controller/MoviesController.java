@@ -8,6 +8,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,7 +25,8 @@ public class MoviesController {
 	
 	@GetMapping(path = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Movies> getAllMovies(){
-		return this.moviesService.getAllMovies();
+		List<Movies> moviesList = this.moviesService.getAllMovies();
+		return moviesList;
 	}
 	
 	@GetMapping(path = "/id/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -31,9 +34,22 @@ public class MoviesController {
 		
 		Movies movie = this.moviesService.getMovieById(id);
 		
-//		if(p == null) throw new NonexistentPolkamanException();
+		return new ResponseEntity<>(movie, HttpStatus.OK);
+	}
+	
+	@GetMapping(path = "/name/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Movies>> getMoviesByName(@PathVariable String name){
+		
+		List<Movies> movie = this.moviesService.getMovieByName(name);
 		
 		return new ResponseEntity<>(movie, HttpStatus.OK);
 	}
+	
+	@PostMapping(path = "/new", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public void insertMovie(@RequestBody Movies movie) {
+		this.moviesService.addMovie(movie);
+	}
+
+	
 
 }

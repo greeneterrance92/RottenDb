@@ -12,18 +12,18 @@ import com.revature.repository.UsersRepository;
 public class UsersService {
 	
 	@Autowired
-	private UsersRepository userRepository;
+	private UsersRepository usersRepository;
 	
 	public List<Users> getAllUsers() {
-		return this.userRepository.findAll();
+		return this.usersRepository.findAll();
 	}
 	
 	public Users getUsersByUsername(String username) {
-		return this.userRepository.findUsersByUsername(username);
+		return this.usersRepository.findUsersByUsername(username);
 	}
 	
 	public Users getUsersById(int id) {
-		return this.userRepository.findUsersByUsersid(id);
+		return this.usersRepository.findUsersByUsersid(id);
 	}
 
 }
