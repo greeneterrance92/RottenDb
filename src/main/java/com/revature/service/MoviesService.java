@@ -21,4 +21,16 @@ public class MoviesService {
 	public Movies getMovieById(int i) {
 		return this.moviesRepository.findById(i);
 	}
+	
+	public List<Movies> getMovieByName(String moviename) {
+		return this.moviesRepository.findByMoviename(moviename);
+	}
+	
+	public void addMovie(Movies m) {
+		this.moviesRepository.save(m);
+	}
+	
+	public void deleteMovie(Movies movie) {
+		this.moviesRepository.delete(movie);
+	}
 }
