@@ -25,5 +25,9 @@ public class UsersService {
 	public Users getUsersById(int id) {
 		return this.usersRepository.findUsersByUsersid(id);
 	}
+	
+	public void addUsers(Users user) {
+		this.usersRepository.save(user);
+	}
 
 }
