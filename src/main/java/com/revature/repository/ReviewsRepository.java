@@ -11,7 +11,7 @@ import com.revature.model.Reviews;
 public interface ReviewsRepository extends JpaRepository<Reviews, Integer>{
 
 	List<Reviews> findAll();
-	Reviews findById(int id);
+//	Reviews findById(int id);
 	List<Reviews> findByReviewname(String reviewname);
 	<S extends Reviews> S save(Reviews review);
 	void delete(Reviews review);

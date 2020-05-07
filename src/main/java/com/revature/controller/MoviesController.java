@@ -31,13 +31,13 @@ public class MoviesController {
 		return moviesList;
 	}
 	
-	@GetMapping(path = "/id/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	/*@GetMapping(path = "/id/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Movies> getMoviesByID(@PathVariable int id){
 		
 		Movies movie = this.moviesService.getMovieById(id);
 		
 		return new ResponseEntity<>(movie, HttpStatus.OK);
-	}
+	}*/
 	
 	@GetMapping(path = "/name/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Movies>> getMoviesByName(@PathVariable String name){

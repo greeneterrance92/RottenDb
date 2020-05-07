@@ -18,9 +18,9 @@ public class RecommendationsService {
 		return this.recommendationsRepository.findAll();
 	}
 	
-	public Recommendations getRecommendationById(int id) {
+	/*public Recommendations getRecommendationById(int id) {
 		return this.recommendationsRepository.findById(id);
-	}
+	}*/
 	
 	public List<Recommendations> getRecommendationsByReceiver(String receiver){
 		return this.recommendationsRepository.findByReceiver(receiver);
