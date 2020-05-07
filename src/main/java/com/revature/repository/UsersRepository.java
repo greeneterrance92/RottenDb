@@ -13,5 +13,5 @@ public interface UsersRepository extends JpaRepository<Users, Integer>{
 	List<Users> findAll();
 	Users findUsersByUsername(String username);
 	Users findUsersByUsersid(int id);
-	<S extends Users> S save(Users user);
+	//<S extends Users> S save(Users user);
 }
