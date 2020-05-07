@@ -33,4 +33,8 @@ public class MoviesService {
 	public void deleteMovie(Movies movie) {
 		this.moviesRepository.delete(movie);
 	}
+	
+	public boolean exists(String moviename) {
+		return this.moviesRepository.existsByMoviename(moviename);
+	}
 }
