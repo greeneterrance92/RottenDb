@@ -18,9 +18,9 @@ public class MoviesService {
 		return this.moviesRepository.findAll();
 	}
 	
-	public Movies getMovieById(int i) {
+	/*public Movies getMovieById(int i) {
 		return this.moviesRepository.findById(i);
-	}
+	}*/
 	
 	public List<Movies> getMovieByName(String moviename) {
 		return this.moviesRepository.findByMoviename(moviename);

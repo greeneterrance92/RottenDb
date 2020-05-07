@@ -15,6 +15,10 @@ import javax.persistence.Table;
 public class Users {
 	
 	@Id
+
+
+
+
 	@GeneratedValue(generator = "users_usersid_seq", strategy = GenerationType.AUTO)
 	@SequenceGenerator(name = "users_usersid_seq", allocationSize = 1)
 	private int usersid;
