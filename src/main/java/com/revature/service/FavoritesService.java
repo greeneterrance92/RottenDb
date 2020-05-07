@@ -27,8 +27,8 @@ public class FavoritesService {
 		return this.favoritesRepository.findAll();
 	}
 
-	public List<Favorites> findFavoritesByUserid(int usersId){
-		return this.favoritesRepository.findFavoritesByUsersid(usersId);
+	public List<Favorites> findFavoritesByUser(Users user){
+		return this.favoritesRepository.findFavoritesByUsersid(user);
 	}
 
 	public void insertFavorite(Favorites favorite) {
