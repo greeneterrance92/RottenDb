@@ -18,6 +18,7 @@ import com.revature.model.Favorites;
 import com.revature.model.Reviews;
 import com.revature.model.Users;
 import com.revature.service.FavoritesService;
+import com.revature.service.UsersService;
 
 @RestController("favoritesController")
 @RequestMapping("/fav")
@@ -26,15 +27,18 @@ public class FavoritesController {
 	
 	@Autowired
 	private FavoritesService favoritesService;
+	@Autowired
+	private UsersService usersService;
 	
 	@GetMapping(path = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Favorites> getAllMovies(){
 		return this.favoritesService.getAllFavorites();
 	}
 	
-	@GetMapping(path = "/id/{userId}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<Favorites>> getFavoritesByUserid(@PathVariable int userId){
-		List<Favorites> favorite = this.favoritesService.findFavoritesByUserid(userId);
+	@GetMapping(path = "/id/{user}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Favorites>> getFavoritesByUser(@PathVariable String user){
+		Users user1 = this.usersService.getUsersByUsername(user);
+		List<Favorites> favorite = this.favoritesService.findFavoritesByUser(user1);
 		
 		
 		return new ResponseEntity<>(favorite, HttpStatus.OK);
