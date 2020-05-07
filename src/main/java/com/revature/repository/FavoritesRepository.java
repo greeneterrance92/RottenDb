@@ -13,6 +13,7 @@ import com.revature.model.Users;
 public interface FavoritesRepository extends JpaRepository<Favorites, Integer>{
 
 	List<Favorites> findAll();
+
 	List<Favorites> findFavoritesByUsersid(Users user);
 	//<S extends Favorites> S save(Favorites favorite);
 }
