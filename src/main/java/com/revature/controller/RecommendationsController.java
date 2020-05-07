@@ -9,9 +9,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.revature.model.Favorites;
 import com.revature.model.Recommendations;
 import com.revature.service.RecommendationsService;
 
@@ -46,5 +49,9 @@ public class RecommendationsController {
 		return new ResponseEntity<>(this.recommendationsService.getRecommendationsByReceiver(receiver), HttpStatus.OK);
 	}
 	
+	@PostMapping(path = "/new", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public void insertRecommendation(@RequestBody Recommendations recommendation) {
+		this.recommendationsService.insertRecommendation(recommendation);
+	}
 	
 }
