@@ -52,6 +52,12 @@ public class MoviesController {
 		this.moviesService.addMovie(movie);
 	}
 
-	
+	@GetMapping(path = "/exists/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Boolean> exists(@PathVariable String name){
+		
+		boolean movie= this.moviesService.exists(name);
+		
+		return new ResponseEntity<>(movie, HttpStatus.OK);
+	}
 
 }
