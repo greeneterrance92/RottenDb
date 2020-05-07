@@ -16,6 +16,5 @@ public interface MoviesRepository extends JpaRepository<Movies, Integer> {
 	<S extends Movies> S save(Movies movie);
 	void delete(Movies movie);
 	boolean existsByMoviename(String moviename);
-
 	
 }
