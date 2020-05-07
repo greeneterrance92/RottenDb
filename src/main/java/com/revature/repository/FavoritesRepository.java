@@ -12,5 +12,7 @@ import com.revature.model.Movies;
 public interface FavoritesRepository extends JpaRepository<Favorites, Integer>{
 
 	List<Favorites> findAll();
+
+	List<Favorites> findFavoritesByUsersid(int usersid);
 	//<S extends Favorites> S save(Favorites favorite);
 }

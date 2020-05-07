@@ -19,7 +19,8 @@ public class UsersService {
 	}
 	
 	public Users getUsersByUsername(String username) {
-		return this.usersRepository.findUsersByUsername(username);
+		Users user = this.usersRepository.findUsersByUsername(username);
+		return user;
 	}
 	
 	public Users getUsersById(int id) {

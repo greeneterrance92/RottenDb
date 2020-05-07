@@ -21,19 +21,27 @@ public class FavoritesService {
 	UsersRepository usersRepository;
 	@Autowired
 	MoviesRepository moviesRepository;
+
 	public List<Favorites> getAllFavorites() {
-		
+
 		return this.favoritesRepository.findAll();
 	}
-	
+
+	public List<Favorites> findFavoritesByUserid(int usersId){
+		return this.favoritesRepository.findFavoritesByUsersid(usersId);
+	}
+
 	public void insertFavorite(Favorites favorite) {
-		Users user = this.usersRepository.findUsersByUsername(favorite.getUser().getUsername());
-		//System.out.println(favorite.getMovie().getMovieName());
-		List<Movies> movie = this.moviesRepository.findByMoviename(favorite.getMovie().getMovieName());
-		//System.out.println(movie);
-		favorite.setMovie(movie.get(0));
-		
-		favorite.setUser(user);
-		this.favoritesRepository.save(favorite);
+		System.out.println(favorite);
+		if (!(favorite.getMovie() == null) && !(favorite.getUser() == null)) {
+			System.out.println(favorite.getMovie().getMovieName());
+			List<Movies> movie = this.moviesRepository.findByMoviename(favorite.getMovie().getMovieName());
+			System.out.println(movie);
+			Users user = this.usersRepository.findUsersByUsername(favorite.getUser().getUsername());
+			favorite.setMovie(movie.get(0));
+			favorite.setUser(user);
+			this.favoritesRepository.save(favorite);
+		}
+
 	}
 }
