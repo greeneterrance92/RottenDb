@@ -33,13 +33,13 @@ public class RecommendationsController {
 		return this.recommendationsService.getAllRecommendations();
 	}
 	
-	@GetMapping(path = "/id/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	/*@GetMapping(path = "/id/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Recommendations> getRecommendationById(@PathVariable int id){
 		
 		Recommendations rec = this.recommendationsService.getRecommendationById(id);
 		
 		return new ResponseEntity<>(rec, HttpStatus.OK);
-	}
+	}*/
 	
 	@GetMapping(path = "/name/{receiver}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Recommendations>> getReviewsByReceiver(@PathVariable String receiver) {

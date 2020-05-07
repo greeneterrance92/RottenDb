@@ -11,7 +11,7 @@ import com.revature.model.Movies;
 public interface MoviesRepository extends JpaRepository<Movies, Integer> {
 
 	List<Movies> findAll();
-	Movies findById(int i);
+//	Movies findById(int i);
 	List<Movies> findByMoviename(String moviename);
 	<S extends Movies> S save(Movies movie);
 	void delete(Movies movie);
