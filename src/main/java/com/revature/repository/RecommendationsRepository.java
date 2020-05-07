@@ -11,6 +11,6 @@ import com.revature.model.Recommendations;
 public interface RecommendationsRepository extends JpaRepository<Recommendations, Integer>{
 	
 	List<Recommendations> findAll();
-	Recommendations findById(int id);
+//	Recommendations findById(int id);
 	List<Recommendations> findByReceiver(String receiver);
 }

@@ -1,5 +1,6 @@
 package com.revature.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,10 +20,10 @@ public class Favorites {
 	@GeneratedValue(generator = "favorites_id_seq", strategy = GenerationType.AUTO)
 	@SequenceGenerator(name = "favorites_id_seq", allocationSize = 1)
 	private int favoritesid;
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name="userId")
 	private Users usersid;
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name="movieId")
 	private Movies movieId;
 	public Favorites() {

@@ -22,9 +22,9 @@ public class ReviewsService {
 		return this.reviewsRepository.findAll();
 	}
 	
-	public Reviews getReviewsById(int id) {
+	/*public Reviews getReviewsById(int id) {
 		return this.reviewsRepository.findById(id);
-	}
+	}*/
 	
 	public List<Reviews> getReviewsByName(String reviewname) {
 		return this.reviewsRepository.findByReviewname(reviewname);
